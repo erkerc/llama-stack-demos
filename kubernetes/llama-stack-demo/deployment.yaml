@@ -32,9 +32,9 @@ spec:
           name: llamastack
           env:
             - name: MAX_TOKENS
-              value: '5000'
+              value: '120000'
             - name: VLLM_MAX_TOKENS
-              value: '5000'
+              value: '120000'
             - name: LLAMA3B_URL
               value: 'http://llama-32-cpu-predictor.llm-test.svc.cluster.local:8080/v1'
             - name: LLAMA3B_MODEL
