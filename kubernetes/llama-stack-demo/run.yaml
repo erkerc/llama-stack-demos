@@ -16,16 +16,23 @@ providers:
     provider_type: remote::vllm
     config:
       url: ${env.LLAMA3B_URL}
-      max_tokens: 128000
+      max_tokens: 15000
       api_token: fake
       tls_verify: false
-  - provider_id: gemma-3-27b
+  - provider_id: llama-8b
     provider_type: remote::vllm
     config:
-      url: ${env.GEMMA_URL}
+      url: ${env.LLAMA8B_URL}
       max_tokens: 128000
       api_token: fake
       tls_verify: false
+  # - provider_id: gemma-3-27b
+  #   provider_type: remote::vllm
+  #   config:
+  #     url: ${env.GEMMA_URL}
+  #     max_tokens: 128000
+  #     api_token: fake
+  #     tls_verify: false
   - provider_id: sentence-transformers
     provider_type: inline::sentence-transformers
     config: {}
@@ -110,9 +117,13 @@ models:
   provider_id: llama-3b
   model_type: llm
 - metadata: {}
-  model_id: ${env.GEMMA_MODEL}
-  provider_id: gemma-3-27b
+  model_id: ${env.LLAMA8B_MODEL}
+  provider_id: llama-8b
   model_type: llm
+# - metadata: {}
+#   model_id: ${env.GEMMA_MODEL}
+#   provider_id: gemma-3-27b
+#   model_type: llm
 - metadata:
     embedding_dimension: 384
   model_id: all-MiniLM-L6-v2
@@ -131,7 +142,7 @@ tool_groups:
   provider_id: model-context-protocol
   mcp_endpoint:
     uri: "http://ocp-mcp-server:8000/sse"
-- toolgroup_id: mcp::slack
-  provider_id: model-context-protocol
-  mcp_endpoint:
-    uri: "http://slack-mcp-server:80/sse"
+# - toolgroup_id: mcp::slack
+#   provider_id: model-context-protocol
+#   mcp_endpoint:
+#     uri: "http://slack-mcp-server:80/sse"

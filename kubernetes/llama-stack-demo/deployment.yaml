@@ -32,18 +32,19 @@ spec:
           name: llamastack
           env:
             - name: MAX_TOKENS
-              value: '128000'
+              value: '5000'
             - name: VLLM_MAX_TOKENS
-              value: '128000'
+              value: '5000'
             - name: LLAMA3B_URL
               value: 'http://llama-32-cpu-predictor.llm-test.svc.cluster.local:8080/v1'
             - name: LLAMA3B_MODEL
               value: llama-32-cpu
-            - name: GRANITE_URL
-              value: 'https://granite32-8b.llama-serve.svc.cluster.local/v1'
-            - name: GRANITE_MODEL
+            - name: LLAMA8B_URL
+              value: 'http://llama-3-1-8b-instruct-predictor.llama-stack-demo.svc.cluster.local:8080/v1'
+            - name: LLAMA8B_MODEL
+              value: llama-3-1-8b-instruct         
             - name: GEMMA_URL
-              value: 'https://gemma-3-27b.llm-test.svc.cluster.local:8080/v1'
+              value: 'https://gemma-3-27b.llm-test.svc.cluster.local/v1'
             - name: GEMMA_MODEL
               value: gemma-3-27b
             - name: VLLM_API_TOKEN
