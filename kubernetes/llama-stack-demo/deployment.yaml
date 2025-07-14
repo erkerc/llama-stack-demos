@@ -47,7 +47,25 @@ spec:
               value: 'https://gemma-3-27b.llm-test.svc.cluster.local/v1'
             - name: GEMMA_MODEL
               value: gemma-3-27b
+            - name: DEEPSEEK_URL
+              value: 'https://api.deepseek.com/v1'
+            - name: DEEPSEEK_MODEL
+              value: deepseek-chat
+            - name: LLAMA4_URL
+              value: https://llama-4-scout-17b-16e-w4a16-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1     
+            - name: LLAMA4_MODEL
+              value: llama-4-scout-17b-16e-w4a16         
+            - name: LLAMA4_API_TOKEN
+              value: fake   
+            - name: DEEPSEEK_R1_QWEN_14B_URL
+              value: https://deepseek-r1-qwen-14b-w4a16-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1     
+            - name: DEEPSEEK_R1_QWEN_14B_MODEL
+              value: r1-qwen-14b-w4a16        
+            - name: DEEPSEEK_R1_QWEN_14B_URL_API_TOKEN
+              value: fake       
             - name: VLLM_API_TOKEN
+              value: fake
+            - name: DEEPSEEK_API_TOKEN
               value: fake
             - name: CUSTOM_TIKTOKEN_CACHE_DIR
               value: /app/cache
@@ -55,6 +73,8 @@ spec:
               value: milvus.db
             - name: LLAMA_STACK_LOGGING
               value: all=debug
+            - name: TAVILY_SEARCH_API_KEY
+              value: fake
           ports:
             - containerPort: 8321
               protocol: TCP

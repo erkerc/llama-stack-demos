@@ -12,6 +12,13 @@ apis:
 - vector_io
 providers:
   inference:
+  # - provider_id: deepseek
+  #   provider_type: remote::vllm
+  #   config:
+  #     url: ${env.DEEPSEEK_URL}
+  #     max_tokens: 128000
+  #     api_token: ${env.DEEPSEEK_API_TOKEN}
+  #     tls_verify: false
   - provider_id: llama-3b
     provider_type: remote::vllm
     config:
@@ -19,13 +26,27 @@ providers:
       max_tokens: 15000
       api_token: fake
       tls_verify: false
-  - provider_id: llama-8b
+  - provider_id:  llama4-scout
     provider_type: remote::vllm
     config:
-      url: ${env.LLAMA8B_URL}
+      url: ${env.LLAMA4_URL}
       max_tokens: 128000
-      api_token: fake
+      api_token:  ${env.LLAMA4_API_TOKEN}
       tls_verify: false
+  - provider_id:  r1-qwen-14b-w4a16
+    provider_type: remote::vllm
+    config:
+      url: ${env.DEEPSEEK_R1_QWEN_14B_URL}
+      max_tokens: 40000
+      api_token:  ${env.DEEPSEEK_R1_QWEN_14B_URL_API_TOKEN}
+      tls_verify: false
+  # - provider_id: llama-8b
+  #   provider_type: remote::vllm
+  #   config:
+  #     url: ${env.LLAMA8B_URL}
+  #     max_tokens: 128000
+  #     api_token: fake
+  #     tls_verify: false
   # - provider_id: gemma-3-27b
   #   provider_type: remote::vllm
   #   config:
@@ -112,13 +133,25 @@ metadata_store:
   type: sqlite
   db_path: ${env.SQLITE_STORE_DIR:~/.llama/distributions/remote-vllm}/registry.db
 models:
+# - metadata: {}
+#   model_id: ${env.DEEPSEEK_MODEL}
+#   provider_id: deepseek
+#   model_type: llm
 - metadata: {}
   model_id: ${env.LLAMA3B_MODEL}
   provider_id: llama-3b
   model_type: llm
+# - metadata: {}
+#   model_id: ${env.LLAMA8B_MODEL}
+#   provider_id: llama-8b
+#   model_type: llm
 - metadata: {}
-  model_id: ${env.LLAMA8B_MODEL}
-  provider_id: llama-8b
+  model_id: ${env.LLAMA4_MODEL}
+  provider_id: llama4-scout
+  model_type: llm
+- metadata: {}
+  model_id: ${env.DEEPSEEK_R1_QWEN_14B_MODEL}
+  provider_id: r1-qwen-14b-w4a16
   model_type: llm
 # - metadata: {}
 #   model_id: ${env.GEMMA_MODEL}
